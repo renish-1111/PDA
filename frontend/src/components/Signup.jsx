@@ -38,7 +38,7 @@ const Signin = () => {
               </div>
             </div>
             <Link to={"/sign-in"}>
-              <button className="sign-btn">Sign up</button>
+              <button className="signup-btn">Sign up</button>
             </Link>
           </div>
         </div>

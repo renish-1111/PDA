@@ -16,6 +16,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 5px 3px 20px white;
+    border: 3px solid wheat;
 }
 
 .signup-email {
@@ -55,4 +57,25 @@
 
     height: 30px;
     width: 250px;
+}
+.signup-btn {
+    margin: 40px;
+    height: 50px;
+    width: 350px;
+    color: black;
+    border: 3px solid wheat;
+    border-radius: 30px;
+    background-color: green;
+    font-size: 20px;
+}
+.signup-btn:hover{
+    cursor: pointer;
+    box-shadow: 2px 2px 2px white;
+}
+
+
+input:hover{
+    box-shadow: 3px 3px 2px white;
+    border: 3px solid rgb(0, 0, 0);
+
 }
