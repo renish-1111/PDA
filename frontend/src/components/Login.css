@@ -1,0 +1,82 @@
+* {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.Link{
+  text-decoration: none;
+  color: #000;
+}
+.container {
+  background: black;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome {
+  text-shadow: 4px 4px 2px rgb(153, 107, 21);
+
+  position: absolute;
+  width: 100vw;
+  background: #000;
+  color: wheat;
+  font-size: 70px;
+  margin-top: 40px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.container .loginBox {
+  background: rgb(24, 24, 24);
+  width: 350px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  margin-top: 110px;
+  border: 3px solid wheat;
+}
+
+.signupBtn {
+  height: 60px;
+  width: 150px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: larger;
+  border-radius: 100px;
+  margin: 20px;
+  opacity: 80%;
+  text-decoration: none;
+}
+
+.or {
+  display: flex;
+  justify-content: center;
+  color: wheat;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 20px;
+  /* opacity: 30%; */
+}
+
+.loginBtn {
+  text-decoration: none;
+  margin: 20px;
+  height: 60px;
+  width: 150px;
+  border-radius: 100px;
+  font-size: larger;
+  opacity: 80%;
+}
+
+.loginBtn:hover {
+  border: 5px solid rgb(0, 0, 0);
+  cursor: pointer;
+}
+
+.signupBtn:hover {
+  border: 5px solid rgb(0, 0, 0);
+  cursor: pointer;
+  
+}

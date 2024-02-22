@@ -1,0 +1,58 @@
+.signup-container {
+    background: #000;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-box {
+    background: rgb(24, 24, 24);
+    width: 450px;
+    height: 450px;
+    border-radius: 30px;
+    border: 3px solid wheat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-email {
+
+    font-size: 25px;
+    color: wheat;
+}
+
+.signup-password {
+
+    font-size: 25px;
+    color: wheat;
+}
+
+#email {
+    display: block;
+    height: 30px;
+    width: 250px;
+}
+
+#password {
+    display: block;
+
+    height: 30px;
+    width: 250px;
+}
+
+.name {
+    display: block;
+    font-size: 25px;
+    color: wheat;
+    text-shadow: 3px 3px 2px rgb(153, 107, 21);
+
+}
+
+#name {
+
+    height: 30px;
+    width: 250px;
+}
