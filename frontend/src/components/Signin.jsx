@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Signin.css";
+import { Link } from "react-router-dom";
 import validation from "./LoginValidation.js";
 
 const Signin = () => {
@@ -36,7 +37,7 @@ const Signin = () => {
                     onChange={handleInput}
                     style={{ display: "block" }}
                   />
-                  <span style={{color:"red"}}>{errors.email && <span>{errors.email}</span>}</span>
+                  <span style={{ color: "red" }}>{errors.email && <span>{errors.email}</span>}</span>
                 </div>
 
                 <div id="password-m">
@@ -51,16 +52,16 @@ const Signin = () => {
                       style={{ display: "block" }}
                     />
                   </div>
-                  <span style={{color:"red"}}>
+                  <span style={{ color: "red" }}>
                     {errors.password && <span>{errors.password}</span>}
                   </span>
                 </div>
               </div>
-              <div>
-                <button type="submit" className="signin-btn">
-                  Sign in
-                </button>
-              </div>
+
+              <button type="submit" className="signin-btn">
+                Sign in
+              </button>
+
             </div>
           </dir>
         </form>
