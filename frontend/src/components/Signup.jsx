@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./Signup.css";
 import { Link, useNavigate } from "react-router-dom";
-import validation from "./SignupValidation.js";
 import axios from "axios";
 
 const Signup = () => {
@@ -95,9 +94,7 @@ const Signup = () => {
               <button type="submit" onClick={submit} className="signup-btn">
                 Sign up
               </button>
-              <Link to={"../sign-in"}>
-                <button className="signin-btn">Sign in</button>
-              </Link>
+              
             </div>
           </dir>
         </form>
