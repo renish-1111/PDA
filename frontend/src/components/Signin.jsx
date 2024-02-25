@@ -1,43 +1,58 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import "./Signin.css";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import validation from "./LoginValidation.js";
+import axios from "axios";
 
 const Signin = () => {
-  const [values, setValues] = useState({
-    email: "",
-    password: "",
-  });
-  const [errors, setErrors] = useState({});
-  const handleInput = (event) => {
-    setValues((prev) => ({
-      ...prev,
-      [event.target.name]: [event.target.values],
-    }));
-  };
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    setErrors(validation(values));
-    console.log(values);
-  };
+  const history = useNavigate();
+
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  async function submit(e) {
+    e.preventDefault();
+
+    try {
+      await axios
+        .post("http://localhost:8000/", {
+          username,
+          password
+        })
+        .then((res) => {
+          if (res.data == "exist") {
+            history("/home", { state: { id: username } });
+          } else if (res.data == "notexist") {
+            alert("User have not sign up");
+          }
+        })
+        .catch((e) => {
+          alert("wrong details");
+          console.log(e);
+        });
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   return (
     <div>
       <div className="signin-container">
-        <form onSubmit={handleSubmit} className="signin-box">
+        <form action="POST" className="signin-box">
           <dir>
             <div className="aaa">
               <div className="aa">
-                <span className="email">Email </span>
+                <span className="email">username </span>
                 <div>
                   <input
-                    type="email"
-                    name="email"
+                    type="username"
+                    name="username"
                     id="email"
-                    placeholder="Enter email"
-                    onChange={handleInput}
+                    placeholder="Enter username"
+                    onChange={(e) => {
+                      setUsername(e.target.value);
+                    }}
                     style={{ display: "block" }}
                   />
-                  <span style={{ color: "red" }}>{errors.email && <span>{errors.email}</span>}</span>
                 </div>
 
                 <div id="password-m">
@@ -48,20 +63,18 @@ const Signin = () => {
                       name="password"
                       id="password"
                       placeholder="Enter password"
-                      onChange={handleInput}
+                      onChange={(e) => {
+                        setPassword(e.target.value);
+                      }}
                       style={{ display: "block" }}
                     />
                   </div>
-                  <span style={{ color: "red" }}>
-                    {errors.password && <span>{errors.password}</span>}
-                  </span>
                 </div>
               </div>
 
-              <button type="submit" className="signin-btn">
+              <button type="submit"  onClick={submit} className="signin-btn">
                 Sign in
               </button>
-
             </div>
           </dir>
         </form>
