@@ -48,7 +48,7 @@ const Signin = () => {
           <dir>
             <div className="aaa">
               <div className="aa">
-                <span className="email">username </span>
+                <span className="email">Username </span>
                 <div>
                   <input
                     type="username"
