@@ -8,30 +8,38 @@ const Signin = () => {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  async function submit(e) {
+  async function submit(e){
     e.preventDefault();
 
-    try {
-      await axios
-        .post("http://localhost:8000/", {
-          username,
-          password
+    try{
+
+        await axios.post("http://localhost:8000/sign-in",{
+            username,password
         })
-        .then((res) => {
-          if (res.data == "exist") {
-            history("/home", { state: { id: username } });
-          } else if (res.data == "notexist") {
-            alert("User have not sign up");
-          }
+        .then(res=>{
+            if(res.data=="exist" ){
+              history("/home")
+            }
+            else if(res.data=="wrong password"){
+              alert("Password is wrong!")
+            }
+            else{
+              alert("User not exists!")
+              alert("Please sign up first.")
+            }
         })
-        .catch((e) => {
-          alert("wrong details");
-          console.log(e);
-        });
-    } catch (e) {
-      console.log(e);
+        .catch(e=>{
+            alert("wrong details")
+            console.log(e);
+        })
+
     }
-  }
+    catch(e){
+        console.log(e);
+
+    }
+
+}
 
   return (
     <div>
@@ -46,6 +54,7 @@ const Signin = () => {
                     type="username"
                     name="username"
                     id="email"
+                    value={username}
                     placeholder="Enter username"
                     onChange={(e) => {
                       setUsername(e.target.value);
@@ -62,6 +71,7 @@ const Signin = () => {
                       name="password"
                       id="password"
                       placeholder="Enter password"
+                      value={password}
                       onChange={(e) => {
                         setPassword(e.target.value);
                       }}

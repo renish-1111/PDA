@@ -2,6 +2,7 @@ const express = require("express")
 const collection = require("./mongo")
 const cors = require("cors")
 const app = express()
+
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cors())
@@ -12,18 +13,21 @@ app.get("/",cors(),(req,res)=>{
 
 })
 
-
 app.post("/sign-in",async(req,res)=>{
-    const{email,password}=req.body
+    const{username,password}=req.body
 
     try{
-        const check=await collection.findOne({username:username})
+        const check=await collection.findOne({username:username,password:password})
+        const check1=await collection.findOne({username:username})
 
         if(check){
             res.json("exist")
         }
+        else if(check1){
+            res.json("wrong password")
+        }
         else{
-            res.json("notexist")
+            res.json("not exist")
         }
 
     }
@@ -32,7 +36,6 @@ app.post("/sign-in",async(req,res)=>{
     }
 
 })
-
 
 
 app.post("/sign-up",async(req,res)=>{
