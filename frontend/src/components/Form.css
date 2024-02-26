@@ -24,5 +24,30 @@
     
 }
 
+.form .submit-btn{
+    margin: 50px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+.form .submit-btn button {
+    height: 50px;
+    width: 350px;
+    color: black;
+    border: 3px solid wheat;
+    border-radius: 30px;
+    background-color: green;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+}
+
+.form .submit-btn button:hover{
+    cursor: pointer;
+    box-shadow: 2px 2px 2px white;
+}
 
 
