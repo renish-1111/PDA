@@ -1,11 +1,15 @@
-import React from 'react'
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./Navbar";
+import "./Home.css"
 
 const Home = () => {
   return (
-    <div>
-      <div>Home page</div>
+    <div className="home">
+      <Navbar />
+      
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

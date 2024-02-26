@@ -1,0 +1,28 @@
+.form{
+    color: white;
+    margin: 0px 70px;
+}
+
+.form input{
+    background: none;
+    color: wheat;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: larger;
+    height: 45px;
+    width: 100%;
+    border: 2px solid wheat;
+    margin-top: 5px;
+
+}
+
+.form .question{
+    color: wheat;
+    font-size: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 40px;
+    
+}
+
+
+

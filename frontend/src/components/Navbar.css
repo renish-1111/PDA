@@ -1,0 +1,20 @@
+.navbar {
+    background: #3d3d3d;
+    height: 60px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: wheat 0px 10px 30px -10px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.navbar .link {
+    background: none;
+    color: wheat;
+    text-decoration: none;
+    margin: 0px 15px;
+    font-size: larger;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-shadow: firebrick 1px 1px 3px;
+}

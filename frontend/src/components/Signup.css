@@ -36,13 +36,15 @@
     display: block;
     height: 30px;
     width: 250px;
+    margin: 4px 0px;
 }
 
 #password {
     display: block;
-
+    margin: 4px 0px;
     height: 30px;
     width: 250px;
+    
 }
 
 .name {
@@ -50,13 +52,13 @@
     font-size: 25px;
     color: wheat;
     text-shadow: 3px 3px 2px rgb(153, 107, 21);
-
 }
 
 #name {
-
+    border-radius: 7px;
     height: 30px;
     width: 250px;
+    margin: 4px 0px;
 }
 .signup-btn {
     margin-left: 40px;

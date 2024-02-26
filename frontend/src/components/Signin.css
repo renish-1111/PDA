@@ -31,6 +31,8 @@
 #email {
     height: 30px;
     width: 250px;
+    border-radius: 7px;
+
 }
 
 .email-m {
@@ -44,6 +46,7 @@
 }
 
 #password {
+    border-radius: 7px;
 
     height: 30px;
     width: 250px;
@@ -53,6 +56,7 @@
     color: wheat;
     font-size: 25px;
     text-shadow: 3px 3px 2px rgb(153, 107, 21);
+    
 
 }
 
