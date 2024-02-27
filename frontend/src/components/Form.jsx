@@ -17,7 +17,7 @@ const Form = () => {
           </div>
           <input type="q2" placeholder="Enter your answer" />
           <div className="question">
-            3.What do you feel are your greatest strengths and weaknesses?
+            3.What aspects of your life do you feel most satisfied with right now?
           </div>
           <input type="q3" placeholder="Enter your answer" />
           <div className="question">
@@ -30,7 +30,8 @@ const Form = () => {
           </div>
           <input type="q5" placeholder="Enter your answer" />
           <div className="question">
-            6.What do you feel are your greatest strengths and weaknesses?
+            6.How do you typically handle setbacks or failures?
+
           </div>
           <input type="q6" placeholder="Enter your answer" />
           <div className="question">
@@ -43,23 +44,25 @@ const Form = () => {
           </div>
           <input type="q8" placeholder="Enter your answer" />
           <div className="question">
-            9. What do you feel are your greatest strengths and weaknesses?
+            9.How do you currently prioritize your time and energy?
           </div>
           <input type="q9" placeholder="Enter your answer" />
           <div className="question">
-            10. What do you feel are your greatest strengths and weaknesses?
+            10.Are there any habits or patterns you'd like to change?
           </div>
           <input type="q10" placeholder="Enter your answer" />
           <div className="question">
-            11. What do you feel are your greatest strengths and weaknesses?
+            11.How do you define success for yourself?
           </div>
           <input type="q11" placeholder="Enter your answer" />
           <div className="question">
-            12. What do you feel are your greatest strengths and weaknesses?
+            12.What support systems or resources do you currently have in place
+            for personal development?
           </div>
           <input type="q12" placeholder="Enter your answer" />
           <div className="question">
-            13. What do you feel are your greatest strengths and weaknesses?
+            13.How do you maintain balance between different aspects of your
+            life (work, family, hobbies, etc.)?
           </div>
           <input type="q13" placeholder="Enter your answer" />
           <div className="question">
@@ -67,10 +70,10 @@ const Form = () => {
           </div>
           <input type="q14" placeholder="Enter your answer" />
           <div className="question">
-            15. What do you feel are your greatest strengths and weaknesses?
+            15.How do you envision your ideal future self?
           </div>
           <input type="q15" placeholder="Enter your answer" />
-        
+
           <div className="submit-btn">
             <button type="submit">Submit</button>
           </div>
