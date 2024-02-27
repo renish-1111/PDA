@@ -68,8 +68,7 @@ app.post("/sign-up", async (req, res) => {
 
 app.post("/home/form", async (req, res) => {
     const { q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15 } = req.body;
-    const username = localStorage.setItem("username", JSON.stringify(username));
-
+    const username = localStorage.getItem("username");
     console.log(username);
 
     const formData = {
@@ -95,7 +94,7 @@ app.post("/home/form", async (req, res) => {
 
         if (check) {
             res.json("exist")
-            await collection.insertMany([formData])
+            await collection.insertMany([formData],{ username: username })
         }
         else {
             res.json("notexist")
