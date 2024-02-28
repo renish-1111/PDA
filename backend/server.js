@@ -3,11 +3,15 @@ const collection = require("./mongo")
 const cors = require("cors")
 const app = express()
 const bodyParser = require('body-parser');
+const OpenAI = require('openai');
+
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cors())
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+const openai = new OpenAI({apiKey:'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'})
 
 app.get("/", cors(), (req, res) => {
 
@@ -76,6 +80,47 @@ app.post('/home/form', async (req, res) => {
         res.json('error');
     }
 });
+
+
+
+// POST endpoint to handle form submissions
+app.post('/home/form', async (req, res) => {
+    try {
+        const { username, q1 } = req.body;
+
+        // Generate response using GPT-3
+        const response = await generateAdvice("What are your short-term and long-term goals?",q1);
+        console.log(response);
+        // Send response back to the user
+        // res.json({ success: true, response });
+    } catch (error) {
+        console.error('Error processing question:', error);
+        res.status(500).json({ success: false, error: 'Internal server error' });
+    }
+});
+
+// Function to generate advice using GPT-3
+async function generateAdvice(question,ans) {
+    // Define the prompt for GPT-3
+    const prompt = `Question: ${question}\nAnswer:${ans}`;
+
+    // Send prompt to GPT-3 API
+    const { data } = await openai.complete({
+        engine: 'davinci',
+        prompt,
+        maxTokens: 150,
+        temperature: 0.7,
+        topP: 1.0,
+        frequencyPenalty: 0.0,
+        presencePenalty: 0.0
+    });
+
+    // Extract and return the generated advice
+    return data.choices[0].text;
+}
+
+
+
 
 app.listen(8000, () => {
     console.log("port connected");
