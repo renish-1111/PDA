@@ -18,6 +18,7 @@ const Signin = () => {
         })
         .then(res=>{
             if(res.data=="exist" ){
+              localStorage.setItem("username",username)
               history("/home")
             }
             else if(res.data=="wrong password"){
