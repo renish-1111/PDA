@@ -24,7 +24,6 @@ const Form = () => {
 
   async function submit() {
     console.log(username);
-
     try {
       await axios.post("http://localhost:8000/home/form", {
         q1,
