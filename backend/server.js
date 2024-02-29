@@ -85,41 +85,41 @@ app.post('/home/form', async (req, res) => {
 
 // POST endpoint to handle form submissions
 app.post('/home/form', async (req, res) => {
+    const { q1 } = req.body;
+    console.log(q1);
     try {
-        const { q1 } = req.body;
-        console.log(q1);
         // Generate response using GPT-3
         const advice = await generateAdvice("What are your short-term and long-term goals?", q1);
-        // Function to generate advice using GPT-3
-        async function generateAdvice(question, ans) {
-            // Define the prompt for GPT-3
-            const prompt = `Question: ${question}\nAnswer:${ans}`;
-
-            // Send prompt to GPT-3 API
-            const { data } = await openai.complete({
-                engine: 'davinci',
-                prompt,
-                maxTokens: 150,
-                temperature: 0.7,
-                topP: 1.0,
-                frequencyPenalty: 0.0,
-                presencePenalty: 0.0
-            });
-
-            // Extract and return the generated advice
-            return data.choices[0].text;
-        }
         console.log("Generated Advice:", advice);
         // Send response back to the user
-        // res.json({ success: true, response });
+        res.json({ success: true, advice });
     } catch (error) {
-        console.log("error");
         console.error('Error processing question:', error);
         res.status(500).json({ success: false, error: 'Internal server error' });
     }
-
-
 });
+
+// Function to generate advice using GPT-3
+async function generateAdvice(question, ans) {
+    // Define the prompt for GPT-3
+    const prompt = `Question: ${question}\nAnswer:${ans}`;
+
+    // Send prompt to GPT-3 API
+    const { data } = await openai.complete({
+        engine: 'davinci',
+        prompt,
+        maxTokens: 150,
+        temperature: 0.7,
+        topP: 1.0,
+        frequencyPenalty: 0.0,
+        presencePenalty: 0.0
+    });
+
+    // Extract and return the generated advice
+    console.log(data.choices[0].text);
+    return data.choices[0].text;
+}
+
 
 
 
