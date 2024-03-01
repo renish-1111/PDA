@@ -4,6 +4,7 @@ const cors = require("cors")
 const app = express()
 const bodyParser = require('body-parser');
 const OpenAI = require('openai');
+const axios = require('axios');
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
@@ -72,61 +73,54 @@ app.post("/sign-up", async (req, res) => {
 app.post('/home/form', async (req, res) => {
     const { username, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15 } = req.body;
 
-
     try {
-        await collection.updateOne({ username: username }, { $set: { q1: q1, q2: q2, q3: q3, q4: q4, q5: q5, q6: q6, q7: q7, q8: q8, q9: q9, q10: q10, q11: q11, q12: q12, q13: q13, q14: q14, q15: q15 } })
-        res.json('done');
-        console.log(q1);
-         // Generate response using GPT-3
-         const advice = await generateAdvice("What are your short-term and long-term goals?", q1);
-         console.log("Generated Advice:", advice);
-         // Send response back to the user
-         res.json({ success: true, advice });
-
-         async function generateAdvice(question, ans) {
-            // Define the prompt for GPT-3
-            const prompt = `Question: ${question}\nAnswer:${ans}`;
+        // Update the collection
+        await collection.updateOne({ username: username }, { $set: { q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15 } });
         
-            // Send prompt to GPT-3 API
-            const { data } = await openai.complete({
-                engine: 'davinci',
-                prompt,
-                maxTokens: 150,
-                temperature: 0.7,
-                topP: 1.0,
-                frequencyPenalty: 0.0,
-                presencePenalty: 0.0
-            });
-        
-            // Extract and return the generated advice
-            console.log(data.choices[1].text);
-            return data.choices[1].text;
-        }
-        
-         
+        // Generate response using GPT-3
+        const advice = await generateAdvice("What are your short-term and long-term goals?", q1);
+        console.log("Generated Advice:", advice);
+        await collection.updateOne({ username: username }, { $set: {advice:advice } });
+        // Send response back to the user
+        res.json({ success: true, message: 'done', advice });
     } catch (error) {
-        res.json('error');
-    }
-});
-
-
-
-// POST endpoint to handle form submissions
-app.post('/home/form', async (req, res) => {
-    const { q1 } = req.body;
-    
-    console.log(q1);
-    
-    try {
-       
-    } catch (error) {
-        console.error('Error processing question:', error);
+        console.error('Error processing request:', error);
         res.status(500).json({ success: false, error: 'Internal server error' });
     }
 });
 
-// Function to generate advice using GPT-3
+async function generateAdvice(question, ans) {
+    try {
+        // Define the prompt for GPT-3
+        const prompt = `Question: ${question}\nAnswer: ${ans}`;
 
+        // Set up the request payload
+        const requestData = {
+            model: 'davinci',
+            prompt: prompt,
+            max_tokens: 150,
+            temperature: 0.7,
+            top_p: 1.0,
+            frequency_penalty: 0.0,
+            presence_penalty: 0.0
+        };
+
+        // Send prompt to GPT-3 API
+        const response = await axios.post('https://api.openai.com/v1/completions', requestData, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': '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'
+            }
+        });
+
+        // Extract and return the generated advice
+        console.log(response.data.choices[0].text);
+        return response.data.choices[0].text;
+    } catch (error) {
+        console.error('Error generating advice:', error);
+        throw error; // Re-throw the error for the caller to handle
+    }
+}
 
 
 
