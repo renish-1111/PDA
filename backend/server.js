@@ -77,17 +77,23 @@ app.post('/home/form', async (req, res) => {
     try {
         await collection.updateOne({username:username},{$set:{q1:q1,q2:q2,q3:q3,q4:q4,q5:q5,q6:q6,q7:q7,q8:q8,q9:q9,q10:q10,q11:q11,q12:q12,q13:q13,q14:q14,q15:q15}})
         res.json('done');
-        run("your goal?",q1)
-        async function run(Que,Ans) {
+        run("What are your short-term and long-term goals?",q1,
+        "What do you feel are your greatest strengths and weaknesses?",q2,
+        "What aspects of your life do you feel most satisfied with right now?",q3,
+        "What aspects of your life do you feel could use improvement?",q4,
+        "Have you faced any obstacles or challenges recently that you're struggling to overcome?",q5)
+        async function run(Que1,Ans1,Que2,Ans2,Que3,Ans3,Que4,Ans4,Que5,Ans5) {
             // For text-only input, use the gemini-pro model
             const model = genAI.getGenerativeModel({ model: "gemini-pro"});
           
-            const prompt = `Q:${Que}\nA:${Ans}\nGive Advice in 2 line`
+            const prompt = `Q:${Que1}\nA:${Ans1}\nQ:
+            ${Que2}\nA:${Ans2}\nQ:${Que3}\nA:${Ans3}\nQ:${Que4}\nA:${Ans4}\nQ:${Que5}\nA:${Ans5}\n Give Advice`
           
             const result = await model.generateContent(prompt);
             const response = await result.response;
             const text = response.text();
-            console.log(text);
+            console.log("1.",text);
+
           }
           
 
