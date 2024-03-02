@@ -80,6 +80,9 @@ const newSchema = new mongoose.Schema({
     q15: {
         type: String,
 
+    },
+    advice:{
+        type:String,
     }
 
 })
