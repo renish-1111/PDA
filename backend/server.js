@@ -82,7 +82,7 @@ app.post('/home/form', async (req, res) => {
             // For text-only input, use the gemini-pro model
             const model = genAI.getGenerativeModel({ model: "gemini-pro"});
           
-            const prompt = `Q:${Que}\nA:${Ans}\nGive Advice`
+            const prompt = `Q:${Que}\nA:${Ans}\nGive Advice in 2 line`
           
             const result = await model.generateContent(prompt);
             const response = await result.response;
