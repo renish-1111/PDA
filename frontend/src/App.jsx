@@ -8,6 +8,7 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Form from "./components/Form";
 import Help from "./components/Help";
+import Query from "./components/Query";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -23,6 +24,8 @@ function App() {
         <Route path="/home/about" element={<About />}></Route>
         <Route path="/home/help" element={<Help />}></Route>
         <Route path="/home/form" element={<Form />}></Route>
+        <Route path="/home/query" element={<Query />}></Route>
+
       </Routes>
     </BrowserRouter>
   );
