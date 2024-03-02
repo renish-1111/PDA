@@ -2,4 +2,29 @@
 body{
     background: #000;
     min-height:100vh;
+
+}
+.home-name {
+
+    font-size: 25px;
+    color: wheat;
+}
+#name {
+    display: block;
+    margin: 4px 0px;
+    height: 30px;
+    width: 250px;
+    
+}
+.home-email {
+
+    font-size: 25px;
+    color: wheat;
+}
+#email {
+    display: block;
+    margin: 4px 0px;
+    height: 30px;
+    width: 250px;
+    
 }
