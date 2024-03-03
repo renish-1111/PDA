@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./Navbar";
-import "./Home.css"
+import "./Onetime.css"
 
-const Home = () => {
+const Onetime = () => {
   return (
-    <div className="home">
+    <div className="onetime">
       <Navbar />
       <div id="name">
                   <span className="name">Name</span>{" "}
@@ -19,7 +19,7 @@ const Home = () => {
                       style={{ display: "block" }}
                     />
                   </div>
-        </div><br /><br />
+        </div>
         <div id="email">
                   <span className="email">Email</span>{" "}
                   <div>
@@ -32,7 +32,7 @@ const Home = () => {
                       style={{ display: "block" }}
                     />
                   </div>
-        </div><br /><br />
+        </div>
         <div id="contact">
                   <span className="name">Contact</span>{" "}
                   <div>
@@ -45,7 +45,7 @@ const Home = () => {
                       style={{ display: "block" }}
                     />
                   </div>
-        </div><br /><br />
+        </div>
         <div id="city">
                   <span className="name">City</span>{" "}
                   <div>
@@ -58,7 +58,7 @@ const Home = () => {
                       style={{ display: "block" }}
                     />
                   </div>
-        </div><br /><br />
+        </div>
         <div id="dob">
                   <span className="name">DOB</span>{" "}
                   <div>
@@ -71,7 +71,7 @@ const Home = () => {
                       style={{ display: "block" }}
                     />
                   </div>
-        </div><br /><br />
+        </div>
         <div id="age">
                   <span className="name">Age</span>{" "}
                   <div>
@@ -84,7 +84,7 @@ const Home = () => {
                       style={{ display: "block" }}
                     />
                   </div>
-        </div><br /><br />
+        </div>
         <div id="profession">
                   <span className="name">Profession</span>{" "}
                   <div>
@@ -97,9 +97,9 @@ const Home = () => {
                       style={{ display: "block" }}
                     />
                   </div>
-        </div><br /><br />
+        </div>
     </div>
   );
 };
 
-export default Home;
+export default Onetime;

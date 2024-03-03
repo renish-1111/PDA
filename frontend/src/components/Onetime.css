@@ -4,7 +4,7 @@ body{
     min-height:100vh;
 
 }
-.home-name {
+.onetime-name {
 
     font-size: 25px;
     color: wheat;
@@ -16,7 +16,7 @@ body{
     width: 250px;
     
 }
-.home-email {
+.onetime-email {
 
     font-size: 25px;
     color: wheat;
@@ -28,7 +28,7 @@ body{
     width: 250px;
     
 }
-.home-contact {
+.onetime-contact {
 
     font-size: 25px;
     color: wheat;
@@ -40,12 +40,48 @@ body{
     width: 250px;
     
 }
-.home-city {
+.onetime-city {
 
     font-size: 25px;
     color: wheat;
 }
 #city {
+    display: block;
+    margin: 4px 0px;
+    height: 30px;
+    width: 250px;
+    
+}
+.onetime-dob {
+
+    font-size: 25px;
+    color: wheat;
+}
+#dob {
+    display: block;
+    margin: 4px 0px;
+    height: 30px;
+    width: 250px;
+    
+}
+.onetime-age {
+
+    font-size: 25px;
+    color: wheat;
+}
+#age {
+    display: block;
+    margin: 4px 0px;
+    height: 30px;
+    width: 250px;
+    
+}
+.onetime-profession {
+
+    font-size: 25px;
+    color: wheat;
+}
+#profession {
     display: block;
     margin: 4px 0px;
     height: 30px;
