@@ -112,7 +112,7 @@ async function run(Que1, Ans1, Que2, Ans2, Que3, Ans3, Que4, Ans4, Que5, Ans5, Q
     // For text-only input, use the gemini-pro model
     const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
-    const prompt = `Q:${Que1}\nA:${Ans1}\nQ:${Que2}\nA:${Ans2}\nQ:${Que3}\nA:${Ans3}\nQ:${Que4}\nA:${Ans4}\nQ:${Que5}\nA:${Ans5}\nQ:${Que6}\nA:${Ans6}\nQ:${Que7}\nA:${Ans7}\nQ:${Que8}\nA:${Ans8}\nQ:${Que9}\nA:${Ans9}\nQ:${Que10}\nA:${Ans10}\nQ:${Que11}\nA:${Ans11}\nQ:${Que12}\nA:${Ans12}\nQ:${Que13}\nA:${Ans13}\nQ:${Que14}\nA:${Ans14}\nQ:${Que15}\nA:${Ans15}\n Give Advice`;
+    const prompt = `Q:${Que1}\nA:${Ans1}\nQ:${Que2}\nA:${Ans2}\nQ:${Que3}\nA:${Ans3}\nQ:${Que4}\nA:${Ans4}\nQ:${Que5}\nA:${Ans5}\nQ:${Que6}\nA:${Ans6}\nQ:${Que7}\nA:${Ans7}\nQ:${Que8}\nA:${Ans8}\nQ:${Que9}\nA:${Ans9}\nQ:${Que10}\nA:${Ans10}\nQ:${Que11}\nA:${Ans11}\nQ:${Que12}\nA:${Ans12}\nQ:${Que13}\nA:${Ans13}\nQ:${Que14}\nA:${Ans14}\nQ:${Que15}\nA:${Ans15}\n Give Advice in 5 line`;
 
     const result = await model.generateContent(prompt);
     const response = await result.response;
